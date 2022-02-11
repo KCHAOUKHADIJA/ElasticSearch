@@ -8,7 +8,7 @@
 
    ## 2.Install ElasticSearch
         Download and install the public signing key :
-            wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add –
+            wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 
         You may need to install the apt-transport-https package on Debian before proceeding:
            sudo apt-get install apt-transport-https
