@@ -6,11 +6,11 @@
 > this can be done in any node
 
      cd /usr/share/elasticsearch
-     ./bin/elasticsearch-certutil ca
+     sudo ./bin/elasticsearch-certutil ca
      Accept the default file name, which is elastic-stack-ca.p12. 
      Enter a password for your CA.
 ### 2. Generate a certificate and private key for the nodes in your cluster
-    ./bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
+    sudo ./bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
     Enter the password for your CA
     Create a password for the certificate and accept the default file name.
 > The output file is a keystore named elastic-certificates.p12. This file contains a node certificate, node key, and CA certificate.
@@ -19,7 +19,9 @@
     The default file name from the elasticsearch-certutil tool is elastic-stack-ca.p12.
 
 ### 3. On every node in your cluster, copy the elastic-certificates.p12 file to the $ES_PATH_CONF directory.
-    /etc/elasticsearch
+     sudo su : change to the root user
+     cp /usr/share/elasticsearch/elastic-certificates.p12 /etc/elasticsearch
+     sudo -i -u user
 
 
 ## II. Encrypt internode communications with TLS
@@ -28,6 +30,8 @@
 >Complete the following steps for each node in your cluster. 
 
 ### 1. Open the etc/elasticsearch/elasticsearch.yml file and make the following changes:
+    sudo nano /etc/elasticsearch/elasticsearch.yml
+    
     cluster.name: my-cluster
     node.name: node-1
     xpack.security.transport.ssl.enabled: true
@@ -37,12 +41,15 @@
     xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
     
 ### 2. If you entered a password when creating the node certificate, run the following commands to store the password in the Elasticsearch keystore:
-    ./bin/elasticsearch-keystore add xpack.security.transport.ssl.keystore.secure_password
-    ./bin/elasticsearch-keystore add xpack.security.transport.ssl.truststore.secure_password
+    sudo ./bin/elasticsearch-keystore add xpack.security.transport.ssl.keystore.secure_password
+    sudo ./bin/elasticsearch-keystore add xpack.security.transport.ssl.truststore.secure_password
     
 ### 3. Complete the previous steps for each node in your cluster
 
 ### 4. On every node in your cluster, start Elasticsearch
+     in case of permission error , run :
+     sudo chmod -R 777 /etc/elasticsearch/elastic-certificates.p12
+     then restart elasticsearch
 
 #### In addition to configuring TLS on the transport interface of your Elasticsearch cluster, you configure TLS on the HTTP interface for both Elasticsearch and Kibana.
 
@@ -53,7 +60,7 @@
 
 ### 2. On any single node, run the Elasticsearch HTTP certificate tool to generate a Certificate Signing Request (CSR)
      cd /usr/share/elasticsearch
-     ./bin/elasticsearch-certutil http
+     sudo ./bin/elasticsearch-certutil http
      
 > This command generates a .zip file that contains certificates and keys to use with Elasticsearch and Kibana.
 
@@ -94,7 +101,7 @@
       xpack.security.http.ssl.keystore.path: http.p12
     
   #### Add the password for your private key to the secure settings in Elasticsearch.
-      ./bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password
+      sudo ./bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password
 
   #### Start Elasticsearch.
   
