@@ -1,3 +1,10 @@
+---
+title: 3-Node ElasticSearch Cluster
+layout: template
+filename: about.md
+--- 
+
+
 How to Configure a 3-Node ElasticSearch Cluster
 
     1.Configure hosts 
