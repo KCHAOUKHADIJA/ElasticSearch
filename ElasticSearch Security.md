@@ -106,11 +106,15 @@
   #### Start Elasticsearch.
   
 ## Set the password for the ElasticSearch Built-in users
-
+    sudo nano /etc/elasticsearch/elasticsearch.yml 
+    add this :  xpack.security.enabled: true
     /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 
 > copy them in a secure place
 
+## Access elasticsearch
+
+curl -u elastic:<ur password> https://localhost:9200 -k
 
 
 
