@@ -68,7 +68,7 @@
             node.master: true
             node.data: true
             network.host: 0.0.0.0
-            discovery.seed_hosts: ["node-1", "node-2","node-3"] 
+            discovery.seed_hosts: ["192.168.0.1", "192.168.0.2","192.168.0.3"]
             cluster.initial_master_nodes: ["node-1", "node-2","node-3"]
 
    > After the cluster forms successfully for the first time, remove the cluster.initial_master_nodes setting from each nodes' configuration. 
