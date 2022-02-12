@@ -115,7 +115,7 @@
 
 ## Access elasticsearch
 
-curl -u elastic:<ur password> https://localhost:9200 -k
+curl -u elastic:ur_password https://localhost:9200 -k
 
 
 
