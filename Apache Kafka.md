@@ -104,4 +104,18 @@ To enable Kafka to reboot with the system, use the command:
 
     $ sudo systemctl enable kafka
 
+To configure a cluster check : 
+https://dzone.com/articles/how-to-setup-kafka-cluster
+
+To create a topic : 
+
+      $ ./bin/kafka-topics.sh --create --topic test-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 4
+Send data via producer :
+
+      $ bin/kafka-console-producer.sh --topic test-topic --bootstrap-server localhost:9092
+Read data from consumer: 
+
+      $ bin/kafka-console-consumer.sh --topic test-topic --from-beginning --bootstrap-server localhost:9092
+
+
 
