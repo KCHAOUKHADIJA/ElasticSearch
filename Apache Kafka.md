@@ -106,6 +106,7 @@ To enable Kafka to reboot with the system, use the command:
 
 To configure a cluster check : 
 https://dzone.com/articles/how-to-setup-kafka-cluster
+https://kafka.apache.org/30/documentation.html#quickstart
 
 To create a topic : 
 
