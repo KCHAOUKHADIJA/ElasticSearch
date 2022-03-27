@@ -56,7 +56,7 @@ Add below content :
 Change log directory in services.property
 
     $ sudo nano /usr/local/kafka-server/config/server.properties
-    log.dir = /usr/local/kafka-server/kafka.log
+    log.dir = /usr/local/kafka/kafka.log
 
 Reload the systemd daemon to apply new changes
 
