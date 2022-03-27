@@ -52,16 +52,15 @@ Add below content :
 
     [Install]
     WantedBy=multi-user.target
-
-Reload the systemd daemon to apply new changes
-
-    $ systemctl daemon-reload
     
 Change log directory in services.property
 
     $ sudo nano /usr/local/kafka-server/config/server.properties
     log.dir = /usr/local/kafka-server/kafka.log
 
+Reload the systemd daemon to apply new changes
+
+    $ systemctl daemon-reload
 ### Step 4 – Start Kafka Server
     $ sudo systemctl start kafka
     $ sudo systemctl start zookeeper
