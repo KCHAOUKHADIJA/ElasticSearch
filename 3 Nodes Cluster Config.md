@@ -6,6 +6,8 @@
           192.168.0.2 node-2 
           192.168.0.3 node-3
 
+![image](https://user-images.githubusercontent.com/83924635/162066568-5738c45b-41ca-4b98-a25f-dede6d42fe30.png)
+
    ## 2.Install ElasticSearch
         Download and install the public signing key :
             wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
@@ -70,6 +72,10 @@
             network.host: 0.0.0.0
             discovery.seed_hosts: ["192.168.0.1", "192.168.0.2","192.168.0.3"]
             cluster.initial_master_nodes: ["node-1", "node-2","node-3"]
+
+![image](https://user-images.githubusercontent.com/83924635/162066241-0dbf5d43-1953-4c58-a1d9-ca165f77c136.png)
+![image](https://user-images.githubusercontent.com/83924635/162066438-a52f7f91-bca4-4728-a054-88de5e102f0a.png)
+
 
    > After the cluster forms successfully for the first time, remove the cluster.initial_master_nodes setting from each nodes' configuration. 
 
