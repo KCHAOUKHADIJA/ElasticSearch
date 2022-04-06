@@ -20,7 +20,10 @@
   
       server.port: 5601
       server.host: 0.0.0.0
-      elasticsearch.url: "http://localhost:9200"
+      elasticsearch.hosts: ["http://localhost:9200"]
       
+      ![image](https://user-images.githubusercontent.com/83924635/162066819-050232b0-92f4-46f6-96d0-c785907cf76d.png)
+      ![image](https://user-images.githubusercontent.com/83924635/162066911-1536c0d6-0413-442b-9212-451e963e2761.png)
+
 
 
